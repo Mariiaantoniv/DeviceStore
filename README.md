@@ -31,11 +31,3 @@
 - Responsive design — ensures the catalogue looks and works correctly on desktops, tablets, and mobile devices.
 
 - SCSS architecture — modular and maintainable styling structure using variables, mixins, and reusable components.
-
-
-
-### Available Scripts
-
-`Deploy` - available to deploy your application to gh-pages, to deploy the project, change the second line of code in package.json, specifically the homepage value, from "." to the repository name
-
-`SCSS Preprocessor` - available to write your styles with modern style language
