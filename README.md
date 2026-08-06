@@ -8,13 +8,13 @@ This is a high‑performance React/Vite application that displays a product cata
 ## Technical Requirements
 To run this project, you will need:
 
-Node.js (version 14.x or newer) — A JavaScript runtime required to install dependencies and run the development server.
+**Node.js (version 14.x or newer)** — A JavaScript runtime required to install dependencies and run the development server.
 
-NPM (version 6.x or newer) — The package manager used to install and manage project dependencies.
+**NPM (version 6.x or newer)** — The package manager used to install and manage project dependencies.
 
-A modern browser (Chrome, Safari, Firefox, Edge) — Required to view and interact with the catalog interface.
+**A modern browser (Chrome, Safari, Firefox, Edge)** — Required to view and interact with the catalog interface.
 
-Stable internet connection — Needed to load product data and assets from the API.
+**Stable internet connection** — Needed to load product data and assets from the API.
 
 ## Installation and Setup
 
