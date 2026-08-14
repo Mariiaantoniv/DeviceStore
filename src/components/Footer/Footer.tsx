@@ -63,7 +63,7 @@ export const Footer: React.FC = () => {
           <div className={style.footerLinks}>
             <a
               className={style.footerLink}
-              href="https://github.com/Mariiaantoniv/react_phone-catalog"
+              href="https://github.com/Mariiaantoniv"
               target="_blank"
               rel="noreferrer"
             >
@@ -71,7 +71,7 @@ export const Footer: React.FC = () => {
             </a>
             <a
               className={style.footerLink}
-              href="#/"
+              href="tel:+380962164883"
               target="_blank"
               rel="noreferrer"
             >
@@ -79,7 +79,7 @@ export const Footer: React.FC = () => {
             </a>
             <a
               className={style.footerLink}
-              href="#/"
+              href="https://github.com/Mariiaantoniv/react_phone-catalog"
               target="_blank"
               rel="noreferrer"
             >

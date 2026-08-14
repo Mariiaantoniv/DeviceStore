@@ -29,7 +29,7 @@
 
   @include on-tablet {
     box-sizing: border-box;
-    padding: 32px 32px 64px;
+    padding: 32px 24px 64px;
     position: relative;
     margin-top: 0;
   }
@@ -42,18 +42,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    // position: relative;
+    gap: 16px;
 
-    @include on-desktop {
-      padding: 0 16px;
-    }
   }
 
-  &Img {
-    display: block;
+  &Background {
+    position: relative;
     width: 100%;
-    aspect-ratio: 3 / 3;
-    object-fit: cover;
+    height: 300px;
+    aspect-ratio: 3 / 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
 
     @include on-tablet  {
       aspect-ratio: auto;
@@ -73,7 +75,7 @@
       top: 0;
       width: 32px;
       background-color: white;
-      position: absolute;
+      // position: absolute;
       border: 1px solid #b4bdc3;
       cursor: pointer;
       height: clamp(
@@ -112,5 +114,100 @@
     &Active {
       background-color: #313237;
     }
+  }
+}
+
+.overlay {
+  display: none;
+
+  @include on-tablet {
+    display: flex;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 42%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(4px);
+    padding: clamp(12px, 3vw, 32px);
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 21px;
+  }
+
+  @include on-desktop {
+    top: 24px;
+    left: 24px;
+    width: 47%;
+    padding: 50px;
+  }
+}
+
+.blockTitle {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2px, 1.5vw, 6px);
+}
+
+.titleOverlay {
+  font-size: clamp(20px, 3vw, 42px);
+  line-height: 1.2;
+  display: block;
+  margin: 0;
+  font-weight: bold;
+}
+
+.gradientText {
+  background: linear-gradient(90deg, #891CE8, #7560FA, #E963FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.imgOverlay {
+  @include on-tablet {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include on-desktop {
+    width: 40px;
+    height: 45px;
+    padding: 0 0 0 7px;
+  }
+}
+
+.textOverlay {
+  font-size: clamp(10px, 1.6vw, 15px);
+  padding: 0;
+  font-weight: 500;
+  color: #AEAEAE;
+  margin: 0;
+}
+
+.btnOverlay {
+  height: clamp(40px, 5vw, 65px);
+  @include on-tablet {
+    width: 60%;
+    font-size: 12px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #FFFFFF;
+    padding: 1px 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+
+  @include on-desktop {
+    width: 55%;
+    font-size: 17px;
+    padding: 1px 6px;
+  }
+
+  &:hover {
+    background: linear-gradient(90deg, #891CE8, #7560FA, #E963FF);
+    border-color: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(137, 28, 232, 0.35);
   }
 }

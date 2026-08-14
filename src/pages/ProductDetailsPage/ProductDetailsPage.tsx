@@ -26,6 +26,8 @@ export const ProductDetailsPage: React.FC = () => {
   const [color, setColor] = useState<string | null>(null);
   const [capacity, setCapacity] = useState<string | null>(null);
 
+  const [isVariantChange, setIsVariantChange] = useState(false);
+
   const updateProduct = async (
     newColor: string | null = color,
     newCapacity: string | null = capacity,
@@ -38,12 +40,13 @@ export const ProductDetailsPage: React.FC = () => {
     const normalizedCapacity = newCapacity?.toLowerCase();
 
     const newId = `${data.namespaceId}-${normalizedCapacity}-${normalizedColor}`;
-    const newProduct = await client.getProductDeatils(newId);
+    // const newProduct = await client.getProductDeatils(newId);
 
+    setIsVariantChange(true);
     navigate(`/product/${newId}`, { replace: true });
 
     setColor(newColor);
-    setData(newProduct);
+    // setData(newProduct);
     setCapacity(newCapacity);
   };
 
@@ -58,7 +61,10 @@ export const ProductDetailsPage: React.FC = () => {
   useEffect(() => {
     if (productId) {
       const fetchData = async () => {
-        setLoading(true);
+        if (!isVariantChange) {
+          setLoading(true);
+        }
+
         setError(null);
         try {
           const product = await client.getProductDeatils(productId);
@@ -75,6 +81,7 @@ export const ProductDetailsPage: React.FC = () => {
           setError(e);
         } finally {
           setLoading(false);
+          setIsVariantChange(false);
         }
       };
 

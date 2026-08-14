@@ -92,10 +92,15 @@
 }
 
 .topNavDetails {
+  padding-top: 24px;
+}
+
+.topLink {
+  all: unset;
   display: flex;
   gap: 8px;
-  padding-top: 24px;
   align-items: center;
+  cursor: pointer;
 }
 
 .nameNav {

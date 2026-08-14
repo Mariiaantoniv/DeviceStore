@@ -62,8 +62,10 @@ export const CartPage: React.FC = () => {
         </div>
       )}
       <div className={style.topNavDetails}>
-        <img src="./img/arrows/arrow_left.svg" alt="button left" />
-        <p className={style.nameNav}>Back</p>
+        <Link to="/" className={style.topLink}>
+          <img src="./img/arrows/arrow_left.svg" alt="button left" />
+          <p className={style.nameNav}>Back</p>
+        </Link>
       </div>
 
       <h2 className={style.forH}>Cart</h2>

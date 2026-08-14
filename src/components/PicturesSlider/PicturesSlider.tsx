@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
 import style from './PicturesSlider.module.scss';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   ms?: number;
 };
 
 export const PicturesSlider: React.FC<Props> = () => {
+  const navigate = useNavigate();
+
   const bannersMobile = [
     'img/slider/banner_mobile.png',
     'img/slider/banner_tablets.png',
@@ -13,9 +16,9 @@ export const PicturesSlider: React.FC<Props> = () => {
   ];
 
   const bannerTablet = [
-    'img/slider/banner-phones.jpg',
+    'img/slider/banner-phones.png',
     'img/slider/banner-tabletst.png',
-    'img/banner-accessories.png',
+    'img/slider/banner-accessories.png',
   ];
 
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
@@ -60,14 +63,6 @@ export const PicturesSlider: React.FC<Props> = () => {
 
       <div className={style.slider}>
         <div className={style.sliderHeader}>
-          <div className={style.imageWrapper}>
-            <img
-              src={banners[index]}
-              alt={`banner ${index + 1}`}
-              className={style.sliderImg}
-            />
-          </div>
-
           <button
             onClick={prev}
             className={`${style.sliderButton} ${style.sliderButtonPrev}`}
@@ -75,6 +70,39 @@ export const PicturesSlider: React.FC<Props> = () => {
           >
             <img src="img/arrows/arrow_left.svg" alt="photo arrow left" />
           </button>
+
+          <div
+            className={style.sliderBackground}
+            style={{
+              backgroundImage: `url(${banners[index]})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+            }}
+          >
+            <div className={style.overlay}>
+              <div className={style.blockTitle}>
+                <p className={`${style.titleOverlay} ${style.gradientText}`}>
+                  Now availabable
+                  <br />
+                  in our store!
+                  <img
+                    className={style.imgOverlay}
+                    src="img/logo/hand_perfect.svg"
+                    alt="hand perfect"
+                  />
+                </p>
+                <p className={style.textOverlay}>Be the first!</p>
+              </div>
+
+              <button
+                className={style.btnOverlay}
+                onClick={() => navigate('/phones')}
+              >
+                ORDER NOW
+              </button>
+            </div>
+          </div>
 
           <button
             onClick={next}
